@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 769985801282425237}
   - component: {fileID: 6166881251417200847}
   - component: {fileID: 7796969123715700273}
-  - component: {fileID: 909887553393638756}
   - component: {fileID: 718595178867450197}
   - component: {fileID: 4534637101121263957}
   - component: {fileID: 7835353496720896634}
+  - component: {fileID: 7965338800363577634}
+  - component: {fileID: 5643364381203224688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -100,22 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacking: 0
-  damage: 0
---- !u!114 &909887553393638756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5004872918027787362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1edcf74b4a7554b9060f88628b3d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   maxHP: 100
   currentHP: 100
-  player: {fileID: 0}
+  damage: 0
 --- !u!50 &718595178867450197
 Rigidbody2D:
   serializedVersion: 4
@@ -172,6 +160,51 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7965338800363577634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004872918027787362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 0}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5004872918027787362}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!58 &5643364381203224688
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004872918027787362}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8117477447111467746
 GameObject:
   m_ObjectHideFlags: 0

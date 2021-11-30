@@ -14,6 +14,10 @@ public class CharacterControll : MonoBehaviour
     private Animator anim_player;
     public bool attacking = false;
 
+    public int maxHP = 100;
+    public int currentHP = 100;
+
+
     public int damage = 0;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +31,15 @@ public class CharacterControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentHP == 0)
+        {
+            Destroy(this);
+        }
+
+        if (currentHP > maxHP)
+        {
+            currentHP = maxHP;
+        }
         float movex = (Input.GetAxis("Horizontal"));
         float movey = (Input.GetAxis("Vertical"));
         if(new Vector2(movex,movey) != new Vector2(0, 0))
@@ -98,5 +111,15 @@ public class CharacterControll : MonoBehaviour
             }
         }
         return damage;
+
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("baka");
+        if (collision.gameObject.tag == "regularBean")
+        {
+            currentHP += 20;
+            Destroy(collision.gameObject);
+        }
     }
 }
