@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7835353496720896634}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacking: 0
+  damage: 0
 --- !u!50 &718595178867450197
 Rigidbody2D:
   serializedVersion: 4
@@ -167,7 +168,7 @@ GameObject:
   - component: {fileID: 7894098545258738930}
   m_Layer: 0
   m_Name: hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

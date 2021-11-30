@@ -14,6 +14,7 @@ public class CharacterControll : MonoBehaviour
     private Animator anim_player;
     public bool attacking = false;
 
+    public int damage = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,11 @@ public class CharacterControll : MonoBehaviour
         float movey = (Input.GetAxis("Vertical"));
         if(new Vector2(movex,movey) != new Vector2(0, 0))
         {
-            Direction = new Vector2(movex, movey);
+            if (attacking == false)
+            {
+                Direction = new Vector2(movex, movey);
+                anim_player.Play("Idle");
+            }
         }
         else
         {
@@ -40,26 +45,41 @@ public class CharacterControll : MonoBehaviour
             }
             
         }
-
-        RigidBoy.AddForce(new Vector2(movex, movey) * MoveSpeed * Time.deltaTime) ;
-        RigidBoy.velocity = new Vector2(Mathf.Clamp(RigidBoy.velocity.x, -MaxSpeed, MaxSpeed), Mathf.Clamp(RigidBoy.velocity.y, -MaxSpeed, MaxSpeed));
+        if (attacking == false)
+        {
+            damage = 0;
+            RigidBoy.AddForce(new Vector2(movex, movey) * MoveSpeed * Time.deltaTime);
+            RigidBoy.velocity = new Vector2(Mathf.Clamp(RigidBoy.velocity.x, -MaxSpeed, MaxSpeed), Mathf.Clamp(RigidBoy.velocity.y, -MaxSpeed, MaxSpeed));
+        }
+        else
+        {
+            RigidBoy.velocity = new Vector2(0, 0);
+        }
+        if (Direction.x > 0)
+        {
+            hitbox.offset = new Vector2(0.8322865F, hitbox.offset.y);
+        }
+        if (Direction.x < 0)
+        {
+            hitbox.offset = new Vector2(-0.8322865F, hitbox.offset.y);
+        }
         if (Input.GetButtonDown("Jump"))
         {
             Coli.enabled = false;
             RigidBoy.velocity = Direction * 50F;
         }
-        if (Input.GetButton("Light"))
+        if (Input.GetButtonDown("Light"))
         {
-            attack(false);
+            damage = attack(false);
             anim_player.Play("LightAtk");
         }
-        if (Input.GetButton("Heavy"))
+        if (Input.GetButtonDown("Heavy"))
         {
-            attack(true);
+            damage = attack(true);
             anim_player.Play("HeavyAtk");
         }
     }
-    void attack(bool heavy)
+    int attack(bool heavy)
     {
         if (attacking == false)
         {
@@ -67,14 +87,16 @@ public class CharacterControll : MonoBehaviour
             {
                 print("heavy");
                 attacking = true;
+                return 69;
             }
             else
             {
                 print("light");
                 hitbox.enabled = true;
                 attacking = true;
-
+                return 40;
             }
         }
+        return damage;
     }
 }
