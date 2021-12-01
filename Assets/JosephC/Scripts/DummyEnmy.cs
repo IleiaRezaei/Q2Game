@@ -20,7 +20,7 @@ public class DummyEnmy : MonoBehaviour
             hp -= dam;
             if (hp <= 0)
             {
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
     }
