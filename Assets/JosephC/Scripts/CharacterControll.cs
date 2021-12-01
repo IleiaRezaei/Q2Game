@@ -19,6 +19,7 @@ public class CharacterControll : MonoBehaviour
 
 
     public int damage = 0;
+    public int knockback = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +61,7 @@ public class CharacterControll : MonoBehaviour
         }
         if (attacking == false)
         {
+            knockback = 0;
             damage = 0;
             RigidBoy.AddForce(new Vector2(movex, movey) * MoveSpeed * Time.deltaTime);
             RigidBoy.velocity = new Vector2(Mathf.Clamp(RigidBoy.velocity.x, -MaxSpeed, MaxSpeed), Mathf.Clamp(RigidBoy.velocity.y, -MaxSpeed, MaxSpeed));
@@ -101,6 +103,7 @@ public class CharacterControll : MonoBehaviour
                 print("heavy");
                 attacking = true;
                 return 69;
+                knockback = 15;
             }
             else
             {
@@ -108,6 +111,7 @@ public class CharacterControll : MonoBehaviour
                 hitbox.enabled = true;
                 attacking = true;
                 return 40;
+                knockback = 10;
             }
         }
         return damage;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DummyEnmy : MonoBehaviour
 {
+    public int hp = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,12 @@ public class DummyEnmy : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerAttack")
         {
-            print(collision.gameObject.transform.parent.gameObject.GetComponent<CharacterControll>().damage);
+            int dam = collision.gameObject.transform.parent.gameObject.GetComponent<CharacterControll>().damage;
+            hp -= dam;
+            if (hp <= 0)
+            {
+                Destroy(this);
+            }
         }
     }
 }
