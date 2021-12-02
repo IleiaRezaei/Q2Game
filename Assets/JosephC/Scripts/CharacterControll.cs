@@ -24,6 +24,8 @@ public class CharacterControll : MonoBehaviour
 
     public GameObject texbox;
     private RaycastHit2D intercast;
+
+    public LayerMask lm;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +53,7 @@ public class CharacterControll : MonoBehaviour
         float movey = (Input.GetAxis("Vertical"));
         if(new Vector2(movex,movey) != new Vector2(0, 0))
         {
-            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), 8  );
+            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), Mathf.Infinity, lm);
             if (attacking == false)
             {
                 Direction = new Vector2(movex, movey);
@@ -100,13 +102,13 @@ public class CharacterControll : MonoBehaviour
             damage = attack(true);
             anim_player.Play("HeavyAtk");
         }
-        if (intercast.collider != null)
+        if (intercast.collider != null && intercast.collider.tag != "Player")
         {
-            if(intercast.collider.gameObject.tag == "NPC")
+            if (intercast.collider)
             {
-                if (Input.GetButtonDown("ineract"))
+                if (Input.GetButtonDown("interact"))
                 {
-                    NPC npcscripy = intercast.collider.gameObject.GetComponent<NPC>();
+                    NPC npcscripy = intercast.collider.GetComponent<NPC>();
                     textbox texscrp = texbox.GetComponent<textbox>();
                     texscrp.DoText(npcscripy.InterAct());
                 }
