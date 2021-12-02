@@ -17,12 +17,16 @@ public class CharacterControll : MonoBehaviour
     public int maxHP = 100;
     public int currentHP = 100;
 
+    public object[,] text; 
 
     public int damage = 0;
     public int knockback = 0;
+
+    public GameObject texbox;
     // Start is called before the first frame update
     void Start()
     {
+        text = new object[,] { {"testtext","neutral",false}, { "testtext", "neutral", true } };
         RigidBoy = GetComponent<Rigidbody2D>();
         Coli = GetComponent<CircleCollider2D>();
         hitbox = transform.GetChild(0).GetComponent<CapsuleCollider2D>();
@@ -43,6 +47,7 @@ public class CharacterControll : MonoBehaviour
         }
         float movex = (Input.GetAxis("Horizontal"));
         float movey = (Input.GetAxis("Vertical"));
+        print((movex, movey));
         if(new Vector2(movex,movey) != new Vector2(0, 0))
         {
             if (attacking == false)
@@ -123,6 +128,10 @@ public class CharacterControll : MonoBehaviour
         {
             currentHP += 20;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "EnemyHitbox")
+        {
+
         }
     }
 }
