@@ -23,6 +23,7 @@ public class CharacterControll : MonoBehaviour
     public int knockback = 0;
 
     public GameObject texbox;
+    private RaycastHit2D intercast;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,7 @@ public class CharacterControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (currentHP == 0)
         {
             Destroy(this);
@@ -50,6 +52,7 @@ public class CharacterControll : MonoBehaviour
         print((movex, movey));
         if(new Vector2(movex,movey) != new Vector2(0, 0))
         {
+            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), 8);
             if (attacking == false)
             {
                 Direction = new Vector2(movex, movey);
@@ -98,6 +101,7 @@ public class CharacterControll : MonoBehaviour
             damage = attack(true);
             anim_player.Play("HeavyAtk");
         }
+        
     }
     int attack(bool heavy)
     {
