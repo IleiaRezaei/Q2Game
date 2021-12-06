@@ -49,10 +49,9 @@ public class CharacterControll : MonoBehaviour
         }
         float movex = (Input.GetAxis("Horizontal"));
         float movey = (Input.GetAxis("Vertical"));
-        print((movex, movey));
         if(new Vector2(movex,movey) != new Vector2(0, 0))
         {
-            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), 8);
+            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), 8  );
             if (attacking == false)
             {
                 Direction = new Vector2(movex, movey);
@@ -101,7 +100,18 @@ public class CharacterControll : MonoBehaviour
             damage = attack(true);
             anim_player.Play("HeavyAtk");
         }
-        
+        if (intercast.collider != null)
+        {
+            if(intercast.collider.gameObject.tag == "NPC")
+            {
+                if (Input.GetButtonDown("ineract"))
+                {
+                    NPC npcscripy = intercast.collider.gameObject.GetComponent<NPC>();
+                    textbox texscrp = texbox.GetComponent<textbox>();
+                    texscrp.DoText(npcscripy.InterAct());
+                }
+            }
+        }
     }
     int attack(bool heavy)
     {
