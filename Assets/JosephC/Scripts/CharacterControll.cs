@@ -14,6 +14,8 @@ public class CharacterControll : MonoBehaviour
     private Animator anim_player;
     public bool attacking = false;
 
+
+
     public int maxHP = 100;
     public int currentHP = 100;
 
@@ -21,6 +23,8 @@ public class CharacterControll : MonoBehaviour
 
     public int damage = 0;
     public int knockback = 0;
+
+    public int playerKnockback = 0;
 
     public GameObject texbox;
     private RaycastHit2D intercast;
@@ -145,9 +149,12 @@ public class CharacterControll : MonoBehaviour
             currentHP += 20;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.tag == "EnemyHitbox")
+        if (collision.gameObject.tag == "Enemy")
         {
+            currentHP -= 20;
+            RigidBoy.velocity = Direction * -50F;
 
         }
+
     }
 }
