@@ -764,6 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0dfef6d3cce4e48b20660f3a2fd991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jsonpath: Assets/JosephC/json/test_text.json
 --- !u!50 &1610529734
 Rigidbody2D:
   serializedVersion: 4

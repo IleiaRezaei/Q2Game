@@ -7,7 +7,7 @@ public class textbox : MonoBehaviour
 {
     
     int curtext = 0;
-    GameObject texobj;
+    public GameObject texobj;
     bool end;
     private void Start()
     {
@@ -23,7 +23,7 @@ public class textbox : MonoBehaviour
             bool CanEnd = (bool)text[curtext, 2];
 
             print((icon, line, CanEnd));
-
+            texobj.GetComponent<Text>().text = line;
 
             if (CanEnd)
             {
