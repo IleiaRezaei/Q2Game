@@ -42,7 +42,11 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+<<<<<<< HEAD
         if (collision.gameObject.tag == "Player")
+=======
+        if (collision.gameObject.tag == "PlayerAttack")
+>>>>>>> 9fdfa67342b8392b21dc42b3db90bd89d8c7e291
         {
             if (bool_script.attacking = true)
             {

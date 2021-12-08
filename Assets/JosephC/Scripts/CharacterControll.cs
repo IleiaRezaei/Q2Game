@@ -85,11 +85,11 @@ public class CharacterControll : MonoBehaviour
         }
         if (Direction.x > 0)
         {
-            hitbox.offset = new Vector2(0.8322865F, hitbox.offset.y);
+            hitbox.offset = new Vector2(0.5F, hitbox.offset.y);
         }
         if (Direction.x < 0)
         {
-            hitbox.offset = new Vector2(-0.8322865F, hitbox.offset.y);
+            hitbox.offset = new Vector2(-0.5F, hitbox.offset.y);
         }
         if (Input.GetButtonDown("Jump"))
         {
@@ -127,16 +127,18 @@ public class CharacterControll : MonoBehaviour
             {
                 print("heavy");
                 attacking = true;
+                knockback = Direction * 350;
                 return 69;
-                knockback = Direction * 15;
+                
             }
             else
             {
                 print("light");
                 hitbox.enabled = true;
                 attacking = true;
+                knockback = Direction * 200;
                 return 40;
-                knockback = Direction * 10;
+                
             }
         }
         return damage;
