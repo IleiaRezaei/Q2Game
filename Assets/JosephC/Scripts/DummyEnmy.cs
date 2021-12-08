@@ -14,18 +14,6 @@ public class DummyEnmy : MonoBehaviour
         rigifdbe = GetComponent<Rigidbody2D>();
         pos = transform.position;
     }
-    private void Update()
-    {
-        if (knocked)
-        {
-            Vector3.Lerp(transform.position, pos, 0.6F);
-            if (transform.position == pos)
-            {
-                knocked = false;
-            }
-        }
-        
-    }
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,7 +23,6 @@ public class DummyEnmy : MonoBehaviour
             Vector2 knock = collision.gameObject.transform.parent.gameObject.GetComponent<CharacterControll>().knockback;
             hp -= dam;
             rigifdbe.AddForce(knock);
-            knocked = true;
             if (hp <= 0)
             {
                 Destroy(this.gameObject);
