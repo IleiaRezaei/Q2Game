@@ -20,7 +20,7 @@ public class CharacterControll : MonoBehaviour
     public object[,] text; 
 
     public int damage = 0;
-    public int knockback = 0;
+    public Vector2 knockback;
 
     public GameObject texbox;
     private RaycastHit2D intercast;
@@ -70,7 +70,7 @@ public class CharacterControll : MonoBehaviour
         }
         if (attacking == false)
         {
-            knockback = 0;
+            knockback = new Vector2();
             damage = 0;
             RigidBoy.AddForce(new Vector2(movex, movey) * MoveSpeed * Time.deltaTime);
             RigidBoy.velocity = new Vector2(Mathf.Clamp(RigidBoy.velocity.x, -MaxSpeed, MaxSpeed), Mathf.Clamp(RigidBoy.velocity.y, -MaxSpeed, MaxSpeed));
@@ -124,7 +124,7 @@ public class CharacterControll : MonoBehaviour
                 print("heavy");
                 attacking = true;
                 return 69;
-                knockback = 15;
+                knockback = Direction * 15;
             }
             else
             {
@@ -132,7 +132,7 @@ public class CharacterControll : MonoBehaviour
                 hitbox.enabled = true;
                 attacking = true;
                 return 40;
-                knockback = 10;
+                knockback = Direction * 10;
             }
         }
         return damage;
@@ -149,5 +149,9 @@ public class CharacterControll : MonoBehaviour
         {
 
         }
+    }
+    public void OnKnock(Vector2 knock)
+    {
+        RigidBoy.AddForce(knock);
     }
 }

@@ -232,9 +232,10 @@ GameObject:
   - component: {fileID: 425600359}
   - component: {fileID: 425600358}
   - component: {fileID: 425600361}
+  - component: {fileID: 425600362}
   m_Layer: 0
   m_Name: bean
-  m_TagString: regularBean
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,6 +341,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &425600362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425600357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7463c6c1b24c0fb43ad6088fbf5defe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
 --- !u!1 &473019327
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0dfef6d3cce4e48b20660f3a2fd991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonpath: 
 --- !u!50 &1610529734
 Rigidbody2D:
   serializedVersion: 4
@@ -1130,7 +1143,7 @@ PrefabInstance:
     - target: {fileID: 7091287230730951555, guid: 53b44b674d4df894eb5b408c975f7604,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53b44b674d4df894eb5b408c975f7604, type: 3}
