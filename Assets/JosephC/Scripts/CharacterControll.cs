@@ -96,7 +96,7 @@ public class CharacterControll : MonoBehaviour
             if (dashtimer <= 0)
             {
                 Dashing = false;
-                dashtimer = 5;
+                dashtimer = 3;
             }
         }
         if (attacking == false)
