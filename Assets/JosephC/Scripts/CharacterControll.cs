@@ -53,6 +53,7 @@ public class CharacterControll : MonoBehaviour
         {
             currentHP = maxHP;
         }
+
         float movex = (Input.GetAxis("Horizontal"));
         float movey = (Input.GetAxis("Vertical"));
         if(new Vector2(movex,movey) != new Vector2(0, 0))
