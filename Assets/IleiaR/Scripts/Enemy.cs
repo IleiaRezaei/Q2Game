@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PlayerAttack" && attack = true)
+        if (collision.gameObject.tag == "PlayerAttack")
         {
             int dam = collision.gameObject.transform.parent.gameObject.GetComponent<CharacterControll>().damage;
             health -= dam;

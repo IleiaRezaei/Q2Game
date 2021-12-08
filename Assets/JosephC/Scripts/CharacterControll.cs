@@ -127,16 +127,18 @@ public class CharacterControll : MonoBehaviour
             {
                 print("heavy");
                 attacking = true;
-                return 69;
                 knockback = Direction * 15;
+                return 69;
+                
             }
             else
             {
                 print("light");
                 hitbox.enabled = true;
                 attacking = true;
-                return 40;
                 knockback = Direction * 10;
+                return 40;
+                
             }
         }
         return damage;
