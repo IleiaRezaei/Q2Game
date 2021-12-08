@@ -11,6 +11,7 @@ public class textbox : MonoBehaviour
     bool end;
     private void Start()
     {
+        this.gameObject.SetActive(false);
         texobj = transform.GetChild(0).gameObject;
     }
     public void DoText(object[,] text)
