@@ -8,12 +8,11 @@ public class CharacterControll : MonoBehaviour
     private float MaxSpeed = 5000;
     private Rigidbody2D RigidBoy;
     private CircleCollider2D Coli;
-    private bool Friction = false;
     private Vector2 Direction = new Vector2(1, 0);
     private CapsuleCollider2D hitbox;
     private Animator anim_player;
     public bool attacking = false;
-
+    private bool Dashing = false;
 
 
     public int maxHP = 100;
@@ -28,6 +27,9 @@ public class CharacterControll : MonoBehaviour
 
     public GameObject texbox;
     private RaycastHit2D intercast;
+    private float dashtimer;
+    private bool CanDash = false;
+    private SpriteRenderer sprt;
 
     public LayerMask lm;
     // Start is called before the first frame update
@@ -38,12 +40,12 @@ public class CharacterControll : MonoBehaviour
         Coli = GetComponent<CircleCollider2D>();
         hitbox = transform.GetChild(0).GetComponent<CapsuleCollider2D>();
         anim_player = GetComponent<Animator>();
+        sprt = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         if (currentHP == 0)
         {
             Destroy(this);
@@ -72,12 +74,36 @@ public class CharacterControll : MonoBehaviour
             }
             
         }
+        if (Dashing == false)
+        {
+            if (CanDash == false)
+            {
+                dashtimer -= Time.deltaTime;
+                print(dashtimer);
+            }
+            Coli.enabled = true;
+            if (dashtimer <= 0)
+            {
+                CanDash = true;
+                Color col = new Color(255, 255, 255, 255);
+                sprt.color = col;
+            }
+        }
+        else
+        {
+            dashtimer -= Time.deltaTime;
+            if (dashtimer <= 0)
+            {
+                Dashing = false;
+                dashtimer = 5;
+            }
+        }
         if (attacking == false)
         {
             knockback = new Vector2();
             damage = 0;
             RigidBoy.AddForce(new Vector2(movex, movey) * MoveSpeed * Time.deltaTime);
-            RigidBoy.velocity = new Vector2(Mathf.Clamp(RigidBoy.velocity.x, -MaxSpeed, MaxSpeed), Mathf.Clamp(RigidBoy.velocity.y, -MaxSpeed, MaxSpeed));
+
         }
         else
         {
@@ -91,10 +117,16 @@ public class CharacterControll : MonoBehaviour
         {
             hitbox.offset = new Vector2(-0.5F, hitbox.offset.y);
         }
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && CanDash)
         {
+            Color col = new Color(255, 255, 255, 4);
+            sprt.color = col;
+            Dashing = true;
             Coli.enabled = false;
             RigidBoy.velocity = Direction * 50F;
+            dashtimer = 0.5F;
+            CanDash = false;
+
         }
         if (Input.GetButtonDown("Light"))
         {
@@ -118,7 +150,9 @@ public class CharacterControll : MonoBehaviour
                 }
             }
         }
+
     }
+    
     int attack(bool heavy)
     {
         if (attacking == false)
