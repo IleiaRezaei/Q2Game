@@ -556,6 +556,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1456422772}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &826057935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7115317392234555102, guid: 6aa9973c5aecb6e48969ad9f5f80aed6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1456422772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1309255993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7091287230730951555, guid: 53b44b674d4df894eb5b408c975f7604,
@@ -1209,6 +1215,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8325147728831252410, guid: ab4daec1697030b4baa672fda5440342,
+        type: 3}
+      propertyPath: attack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325147728831252410, guid: ab4daec1697030b4baa672fda5440342,
+        type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325147728831252410, guid: ab4daec1697030b4baa672fda5440342,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 826057935}
     - target: {fileID: 8325147728831252415, guid: ab4daec1697030b4baa672fda5440342,
         type: 3}
       propertyPath: m_Name
