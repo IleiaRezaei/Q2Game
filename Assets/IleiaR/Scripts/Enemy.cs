@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         {
             int dam = collision.gameObject.transform.parent.gameObject.GetComponent<CharacterControll>().damage;
             Vector2 knock = collision.gameObject.transform.parent.gameObject.GetComponent<CharacterControll>().knockback;
-            health -= dam;
+            health -= dam / 2;
             rb.AddForce(knock);
             if (health <= 0)
             {
