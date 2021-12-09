@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterControll : MonoBehaviour
 {
@@ -18,7 +16,7 @@ public class CharacterControll : MonoBehaviour
     public int maxHP = 100;
     public int currentHP = 100;
 
-    public object[,] text; 
+    public object[,] text;
 
     public int damage = 0;
     public Vector2 knockback;
@@ -35,7 +33,7 @@ public class CharacterControll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text = new object[,] { {"testtext","neutral",false}, { "testtext", "neutral", true } };
+        text = new object[,] { { "testtext", "neutral", false }, { "testtext", "neutral", true } };
         RigidBoy = GetComponent<Rigidbody2D>();
         Coli = GetComponent<CircleCollider2D>();
         hitbox = transform.GetChild(0).GetComponent<CapsuleCollider2D>();
@@ -58,7 +56,7 @@ public class CharacterControll : MonoBehaviour
 
         float movex = (Input.GetAxis("Horizontal"));
         float movey = (Input.GetAxis("Vertical"));
-        if(new Vector2(movex,movey) != new Vector2(0, 0))
+        if (new Vector2(movex, movey) != new Vector2(0, 0))
         {
             intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), Mathf.Infinity, lm);
             if (attacking == false)
@@ -73,7 +71,7 @@ public class CharacterControll : MonoBehaviour
             {
                 anim_player.Play("Idle");
             }
-            
+
         }
         if (Dashing == false)
         {
@@ -96,11 +94,8 @@ public class CharacterControll : MonoBehaviour
             if (dashtimer <= 0)
             {
                 Dashing = false;
-<<<<<<< HEAD
-                dashtimer = 3;
-=======
+
                 dashtimer = 0.5F;
->>>>>>> 3dec8745b552b65d7e392459405150d6f862a9ab
             }
         }
         if (attacking == false)
@@ -157,7 +152,7 @@ public class CharacterControll : MonoBehaviour
         }
 
     }
-    
+
     int attack(bool heavy)
     {
         if (attacking == false)
@@ -168,7 +163,7 @@ public class CharacterControll : MonoBehaviour
                 attacking = true;
                 knockback = Direction * 350;
                 return 69;
-                
+
             }
             else
             {
@@ -177,7 +172,7 @@ public class CharacterControll : MonoBehaviour
                 attacking = true;
                 knockback = Direction * 200;
                 return 40;
-                
+
             }
         }
         return damage;
