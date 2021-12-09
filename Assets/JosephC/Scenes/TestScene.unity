@@ -651,6 +651,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8241419976766218867, guid: 6aa9973c5aecb6e48969ad9f5f80aed6,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241419976766218867, guid: 6aa9973c5aecb6e48969ad9f5f80aed6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8241419976766218867, guid: 6aa9973c5aecb6e48969ad9f5f80aed6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aa9973c5aecb6e48969ad9f5f80aed6, type: 3}
 --- !u!1 &1507933900
@@ -1149,7 +1164,7 @@ PrefabInstance:
     - target: {fileID: 7091287230730951555, guid: 53b44b674d4df894eb5b408c975f7604,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53b44b674d4df894eb5b408c975f7604, type: 3}
