@@ -7,8 +7,9 @@ public class textbox : MonoBehaviour
 {
     
     int curtext = 0;
-    public GameObject texobj;
+    private GameObject texobj;
     bool end;
+    public string jsonpath;
     private void Start()
     {
         this.gameObject.SetActive(false);
