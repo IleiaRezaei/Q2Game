@@ -119,7 +119,7 @@ public class CharacterControll : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && CanDash)
         {
-            Color col = new Color(1, 1, 1, 0.8F);
+            Color col = new Color(0.8F, 0.8F, 0.8F, 0.8F);
             sprt.color = col;
             Dashing = true;
             Coli.enabled = false;
@@ -185,7 +185,7 @@ public class CharacterControll : MonoBehaviour
             currentHP += 20;
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "EnemyAttack")
         {
             print(collision);
             currentHP -= 20;
