@@ -86,7 +86,7 @@ public class CharacterControll : MonoBehaviour
             if (dashtimer <= 0)
             {
                 CanDash = true;
-                Color col = new Color(255, 255, 255, 255);
+                Color col = new Color(1, 1, 1, 1);
                 sprt.color = col;
             }
         }
@@ -96,11 +96,8 @@ public class CharacterControll : MonoBehaviour
             if (dashtimer <= 0)
             {
                 Dashing = false;
-<<<<<<< HEAD
                 dashtimer = 3;
-=======
                 dashtimer = 0.5F;
->>>>>>> 3dec8745b552b65d7e392459405150d6f862a9ab
             }
         }
         if (attacking == false)
@@ -124,7 +121,7 @@ public class CharacterControll : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && CanDash)
         {
-            Color col = new Color(255, 255, 255, 4);
+            Color col = new Color(1, 1, 1, 0.8F);
             sprt.color = col;
             Dashing = true;
             Coli.enabled = false;
@@ -192,6 +189,7 @@ public class CharacterControll : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy")
         {
+            print(collision);
             currentHP -= 20;
             RigidBoy.velocity = Direction * -50F;
 
