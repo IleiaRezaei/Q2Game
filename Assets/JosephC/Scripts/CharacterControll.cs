@@ -114,9 +114,11 @@ public class CharacterControll : MonoBehaviour
         if (Direction.x > 0)
         {
             hitbox.offset = new Vector2(0.5F, hitbox.offset.y);
-        }
+            sprt.flipX = false;
+            }
         if (Direction.x < 0)
         {
+            sprt.flipX = true;
             hitbox.offset = new Vector2(-0.5F, hitbox.offset.y);
         }
         if (Input.GetButtonDown("Jump") && CanDash)
