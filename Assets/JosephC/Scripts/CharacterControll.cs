@@ -80,7 +80,6 @@ public class CharacterControll : MonoBehaviour
                 dashtimer -= Time.deltaTime;
                 print(dashtimer);
             }
-            Coli.enabled = true;
             if (dashtimer <= 0)
             {
                 CanDash = true;
@@ -124,7 +123,6 @@ public class CharacterControll : MonoBehaviour
             Color col = new Color(0.8F, 0.8F, 0.8F, 0.8F);
             sprt.color = col;
             Dashing = true;
-            Coli.enabled = false;
             RigidBoy.velocity = Direction * 50F;
             dashtimer = 0.5F;
             CanDash = false;
@@ -182,17 +180,22 @@ public class CharacterControll : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "regularBean")
+        if (Dashing == false)
         {
-            currentHP += 20;
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "EnemyAttack")
-        {
-            print(collision);
-            currentHP -= 20;
-            RigidBoy.velocity = Direction * -50F;
 
+
+            if (collision.gameObject.tag == "regularBean")
+            {
+                currentHP += 20;
+                Destroy(collision.gameObject);
+            }
+            if (collision.gameObject.tag == "EnemyAttack")
+            {
+                print(collision);
+                currentHP -= 20;
+                RigidBoy.velocity = Direction * -50F;
+
+            }
         }
 
     }

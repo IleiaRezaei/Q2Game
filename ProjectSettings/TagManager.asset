@@ -8,6 +8,7 @@ TagManager:
   - regularBean
   - NPC
   - Enemy
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
