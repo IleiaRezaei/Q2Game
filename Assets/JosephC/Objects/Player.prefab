@@ -108,7 +108,7 @@ MonoBehaviour:
   texbox: {fileID: 0}
   lm:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!50 &718595178867450197
 Rigidbody2D:
   serializedVersion: 4

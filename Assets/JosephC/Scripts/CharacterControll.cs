@@ -146,7 +146,7 @@ public class CharacterControll : MonoBehaviour
                 {
                     NPC npcscripy = intercast.collider.GetComponent<NPC>();
                     textbox texscrp = texbox.GetComponent<textbox>();
-                    texscrp.DoText(npcscripy.InterAct());
+                    texscrp.DoText(npcscripy.InterAct(), npcscripy.geticons());
                 }
             }
         }

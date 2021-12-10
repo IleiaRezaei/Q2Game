@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public object[,] text = { { "hi", 0, false }, { "hi 2", 0, true } };
+    public object[,] text = { { "hi", 0, false }, { "so sad", 1, true } };
+    public Sprite[] icons;
     //public string jsonpath;
     //// Start is called before the first frame update
     //void Start()
@@ -33,5 +34,9 @@ public class NPC : MonoBehaviour
     public object[,] InterAct()
     {
         return text;
+    }
+    public Sprite[] geticons()
+    {
+        return icons;
     }
 }
