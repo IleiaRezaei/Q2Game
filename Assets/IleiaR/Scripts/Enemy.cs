@@ -11,11 +11,14 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    
+    private SpriteRenderer sprt;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprt = GetComponent<SpriteRenderer>();
 
     }
 
