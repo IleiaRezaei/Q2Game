@@ -942,10 +942,32 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4753139627114777819, guid: f8d43e33634fae144b1fcbfc0ce49227,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753139627114777819, guid: f8d43e33634fae144b1fcbfc0ce49227,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.05
+      objectReference: {fileID: 0}
     - target: {fileID: 4753139627114777820, guid: f8d43e33634fae144b1fcbfc0ce49227,
         type: 3}
       propertyPath: m_Name
       value: PotatoEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6166157816632237606, guid: f8d43e33634fae144b1fcbfc0ce49227,
+        type: 3}
+      propertyPath: sprite1
+      value: 
+      objectReference: {fileID: 1624549775495673801, guid: 43c3f920f49cbd14ba8a812740353e9c,
+        type: 3}
+    - target: {fileID: 6166157816632237606, guid: f8d43e33634fae144b1fcbfc0ce49227,
+        type: 3}
+      propertyPath: sprite2
+      value: 
+      objectReference: {fileID: -2345801375932820871, guid: 528b1292561b70f4b8db511855c5e1d0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d43e33634fae144b1fcbfc0ce49227, type: 3}
