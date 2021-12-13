@@ -814,7 +814,12 @@ PrefabInstance:
     - target: {fileID: 3638440719329779104, guid: f8d43e33634fae144b1fcbfc0ce49227,
         type: 3}
       propertyPath: m_Name
-      value: EnemyA*
+      value: PotatoEnemyA*
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638440719329779105, guid: f8d43e33634fae144b1fcbfc0ce49227,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3638440719329779108, guid: f8d43e33634fae144b1fcbfc0ce49227,
         type: 3}
@@ -849,17 +854,17 @@ PrefabInstance:
     - target: {fileID: 3638440719329779111, guid: f8d43e33634fae144b1fcbfc0ce49227,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3638440719329779111, guid: f8d43e33634fae144b1fcbfc0ce49227,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3638440719329779111, guid: f8d43e33634fae144b1fcbfc0ce49227,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3638440719329779111, guid: f8d43e33634fae144b1fcbfc0ce49227,
         type: 3}
@@ -936,6 +941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753139627114777820, guid: f8d43e33634fae144b1fcbfc0ce49227,
+        type: 3}
+      propertyPath: m_Name
+      value: PotatoEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d43e33634fae144b1fcbfc0ce49227, type: 3}
