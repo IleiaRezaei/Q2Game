@@ -7,5 +7,5 @@ public class DiaImpJsonClass
 
     public string Text;
     public int Icon;
-    public bool CanEnd;
+
 }

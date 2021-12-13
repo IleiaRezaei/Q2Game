@@ -19,7 +19,7 @@ public class textbox : MonoBehaviour
         anim = GetComponent<Animator>();
         ico = transform.GetChild(1).gameObject;
     }
-    public void DoText(object[,] text, Sprite[] pic)
+    public void DoText(string[] text, Sprite[] pic)
     {
         if (end == false)
         {
@@ -29,25 +29,31 @@ public class textbox : MonoBehaviour
                 dialogue = true;
                 
             }
-            string line = text[curtext, 0] as string;
-            int icon = (int)text[curtext, 1];
-            bool CanEnd = (bool)text[curtext, 2];
-
+            DiaImpJsonClass texy = new DiaImpJsonClass();
+            texy = JsonUtility.FromJson<DiaImpJsonClass>(text[curtext]);
+            print(texy);
+            string line = texy.Text;
+            int icon = texy.Icon;
             
 
-            print((icon, line, CanEnd));
+
+
+            print((icon, line));
             ico.GetComponent<Image>().sprite = pic[icon];
             texobj.GetComponent<Text>().text = line;
 
-            if (CanEnd)
+            if (curtext >= text.Length -1 )
             {
                 end = true;
 
             }
             else
             {
+                
                 curtext += 1;
+                
             }
+            print((curtext, text.Length -1));
         }
         else
         {
