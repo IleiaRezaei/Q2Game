@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Enemy
   - EnemyAttack
+  - startButton
   layers:
   - Default
   - TransparentFX
