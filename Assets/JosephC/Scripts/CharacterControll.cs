@@ -62,7 +62,7 @@ public class CharacterControll : MonoBehaviour
             if (attacking == false)
             {
                 Direction = new Vector2(movex, movey);
-                anim_player.Play("Idle");
+                anim_player.Play("Walk");
             }
         }
         else
