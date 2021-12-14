@@ -11,24 +11,22 @@ public class textbox : MonoBehaviour
     bool end;
     private Animator anim;
     private GameObject ico;
-    public string jsonpath;
     private bool dialogue;
+    private NPC nonpc;
     private void Start()
     {
         texobj = transform.GetChild(0).gameObject;
         anim = GetComponent<Animator>();
         ico = transform.GetChild(1).gameObject;
+        this.gameObject.SetActive(false);
     }
-    public void DoText(string[] text, Sprite[] pic)
+    public void DoText(string[] text, Sprite[] pic,NPC n)
     {
         if (end == false)
         {
-            if (dialogue != true)
-            {
-                anim.Play("TextboxOpen");
-                dialogue = true;
-                
-            }
+            this.gameObject.SetActive(true);
+            dialogue = true;
+            nonpc = n;
             DiaImpJsonClass texy = new DiaImpJsonClass();
             texy = JsonUtility.FromJson<DiaImpJsonClass>(text[curtext]);
             print(texy);
@@ -60,7 +58,7 @@ public class textbox : MonoBehaviour
             
             end = false;
             curtext = 0;
-            anim.Play("TextboxClose");
+            this.gameObject.SetActive(false);
             dialogue = false;
         }
     }
