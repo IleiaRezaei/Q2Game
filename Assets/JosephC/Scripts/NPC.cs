@@ -6,8 +6,13 @@ public class NPC : MonoBehaviour
 {
     public string[] text;
     public Sprite[] icons;
+    private ParticleSystem partic;
 
 
+    private void Start()
+    {
+        partic = GetComponent<ParticleSystem>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -20,5 +25,9 @@ public class NPC : MonoBehaviour
     public Sprite[] geticons()
     {
         return icons;
+    }
+    public void End()
+    {
+        partic.Stop();
     }
 }
