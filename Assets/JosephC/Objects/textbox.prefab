@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 7091287230730951553}
   - component: {fileID: 7091287230730951559}
   - component: {fileID: 7091287230730951556}
-  - component: {fileID: 4777537426417505473}
+  - component: {fileID: 5436453632519106854}
   m_Layer: 5
   m_Name: textbox
   m_TagString: Untagged
@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00390625, y: 57.17343}
-  m_SizeDelta: {x: -63.00775, y: -379.98846}
+  m_AnchoredPosition: {x: 0.00390625, y: -114}
+  m_SizeDelta: {x: -63.00775, y: -617.46716}
   m_Pivot: {x: 0.5, y: -0.09357835}
 --- !u!222 &7091287230730951558
 CanvasRenderer:
@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652aa11a2673c334bad4897e940332bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonpath: 
 --- !u!114 &7091287230730951556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +180,7 @@ MonoBehaviour:
   m_Events:
     m_Signals: []
     m_Events: []
---- !u!95 &4777537426417505473
+--- !u!95 &5436453632519106854
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
