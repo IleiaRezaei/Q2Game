@@ -63,6 +63,7 @@ public class PotatoEnemy : MonoBehaviour
         }
         else
         {
+            Debug.Log("baljeet");
             isAttacking = false;
             //anim_potato.SetBool("isAttacking", false);
         }
