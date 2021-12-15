@@ -11,6 +11,7 @@ public class PotatoEnemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private Animator anim_potato;
+    public bool isAttacking;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +21,21 @@ public class PotatoEnemy : MonoBehaviour
 
         anim_potato = GetComponent<Animator>();
 
+        isAttacking = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isAttacking == true)
+        {
+            anim_potato.SetBool("isAttacking", true);
 
+        }
+        if (isAttacking == false)
+        {
+            anim_potato.SetBool("isAttacking", false);
+        }
     }
 
     void ChangeColor()
@@ -44,10 +54,17 @@ public class PotatoEnemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            ChangeColor();
+            //ChangeColor();
             Invoke("ChangeColor", 1);
-            anim_potato.Play("attackD");
-
+            //anim_potato.SetBool("isAttacking", true);
+            //anim_potato.Play("attackD");
+            Debug.Log("Fart");
+            isAttacking = true;
+        }
+        else
+        {
+            isAttacking = false;
+            //anim_potato.SetBool("isAttacking", false);
         }
     }
 }
