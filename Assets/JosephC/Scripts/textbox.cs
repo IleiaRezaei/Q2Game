@@ -18,13 +18,12 @@ public class textbox : MonoBehaviour
         texobj = transform.GetChild(0).gameObject;
         anim = GetComponent<Animator>();
         ico = transform.GetChild(1).gameObject;
-        this.gameObject.SetActive(false);
     }
     public void DoText(string[] text, Sprite[] pic,NPC n)
     {
         if (end == false)
         {
-            this.gameObject.SetActive(true);
+            anim.Play("TextboxOpen");
             dialogue = true;
             nonpc = n;
             DiaImpJsonClass texy = new DiaImpJsonClass();
@@ -58,7 +57,7 @@ public class textbox : MonoBehaviour
             
             end = false;
             curtext = 0;
-            this.gameObject.SetActive(false);
+            anim.Play("TextboxClose");
             dialogue = false;
         }
     }
