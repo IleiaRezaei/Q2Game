@@ -1026,6 +1026,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 717671946261346869, guid: 84ab2c0a14d473444be267270ac77a7e,
+        type: 3}
+      propertyPath: text.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 717671946261346869, guid: 84ab2c0a14d473444be267270ac77a7e,
+        type: 3}
+      propertyPath: text.Array.data[3]
+      value: '{"Text":"Im outa here", "Icon":2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 717671946261346869, guid: 84ab2c0a14d473444be267270ac77a7e,
+        type: 3}
+      propertyPath: icons.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9496a18ba7a681146a88aa539097d5dc,
+        type: 3}
     - target: {fileID: 717671946261346873, guid: 84ab2c0a14d473444be267270ac77a7e,
         type: 3}
       propertyPath: m_RootOrder
