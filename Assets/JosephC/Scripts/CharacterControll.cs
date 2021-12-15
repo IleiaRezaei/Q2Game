@@ -58,7 +58,8 @@ public class CharacterControll : MonoBehaviour
         float movey = (Input.GetAxis("Vertical"));
         if (new Vector2(movex, movey) != new Vector2(0, 0))
         {
-            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), Mathf.Infinity, lm);
+            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), 2, lm);
+            
             if (attacking == false)
             {
                 Direction = new Vector2(movex, movey);
@@ -150,6 +151,7 @@ public class CharacterControll : MonoBehaviour
                 }
             }
         }
+        Debug.DrawRay(transform.position, Direction * 2, Color.yellow);
 
     }
 
