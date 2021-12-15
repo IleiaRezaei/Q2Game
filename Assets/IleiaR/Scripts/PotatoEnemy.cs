@@ -64,7 +64,6 @@ public class PotatoEnemy : MonoBehaviour
         else
         {
             isAttacking = false;
-            Debug.Log("honormous fart");
             //anim_potato.SetBool("isAttacking", false);
         }
     }
