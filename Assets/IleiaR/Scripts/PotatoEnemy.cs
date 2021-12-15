@@ -10,17 +10,22 @@ public class PotatoEnemy : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private Animator anim_potato;
+
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprite1;
+
+        anim_potato = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void ChangeColor()
@@ -37,10 +42,12 @@ public class PotatoEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "PlayerAttack")
+        if(collision.gameObject.tag == "Player")
         {
             ChangeColor();
             Invoke("ChangeColor", 1);
+            anim_potato.Play("attackD");
+
         }
     }
 }
