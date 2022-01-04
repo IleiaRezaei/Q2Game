@@ -58,8 +58,9 @@ public class CharacterControll : MonoBehaviour
         float movey = (Input.GetAxis("Vertical"));
         if (new Vector2(movex, movey) != new Vector2(0, 0))
         {
-            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), Mathf.Infinity, lm);
-            if (attacking == false)
+            intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), 2, lm);
+
+            if (attacking == false && Dashing == false)
             {
                 Direction = new Vector2(movex, movey);
                 anim_player.Play("Walk");
@@ -67,7 +68,7 @@ public class CharacterControll : MonoBehaviour
         }
         else
         {
-            if (attacking == false)
+            if (attacking == false && Dashing == false)
             {
                 anim_player.Play("Idle");
             }
@@ -89,6 +90,7 @@ public class CharacterControll : MonoBehaviour
         }
         else
         {
+            anim_player.Play("Dash");
             dashtimer -= Time.deltaTime;
             if (dashtimer <= 0)
             {
@@ -97,14 +99,14 @@ public class CharacterControll : MonoBehaviour
                 dashtimer = 0.5F;
             }
         }
-        if (attacking == false)
+        if (attacking == false && Dashing == false)
         {
             knockback = new Vector2();
             damage = 0;
             RigidBoy.AddForce(new Vector2(movex, movey) * MoveSpeed * Time.deltaTime);
 
         }
-        else
+        if (attacking)
         {
             RigidBoy.velocity = new Vector2(0, 0);
         }
@@ -112,7 +114,7 @@ public class CharacterControll : MonoBehaviour
         {
             hitbox.offset = new Vector2(0.5F, hitbox.offset.y);
             sprt.flipX = false;
-            }
+        }
         if (Direction.x < 0)
         {
             sprt.flipX = true;
@@ -123,20 +125,23 @@ public class CharacterControll : MonoBehaviour
             Color col = new Color(0.8F, 0.8F, 0.8F, 0.8F);
             sprt.color = col;
             Dashing = true;
-            RigidBoy.velocity = Direction * 50F;
-            dashtimer = 0.5F;
+            RigidBoy.velocity = Direction * 75F;
+            dashtimer = 0.3F;
             CanDash = false;
 
         }
-        if (Input.GetButtonDown("Light"))
+        if (attacking == false && Dashing == false)
         {
-            damage = attack(false);
-            anim_player.Play("LightAtk");
-        }
-        if (Input.GetButtonDown("Heavy"))
-        {
-            damage = attack(true);
-            anim_player.Play("HeavyAtk");
+            if (Input.GetButtonDown("Light"))
+            {
+                damage = attack(false);
+                anim_player.Play("LightAtk");
+            }
+            if (Input.GetButtonDown("Heavy"))
+            {
+                damage = attack(true);
+                anim_player.Play("HeavyAtk");
+            }
         }
         if (intercast.collider != null && intercast.collider.tag != "Player")
         {
@@ -146,10 +151,11 @@ public class CharacterControll : MonoBehaviour
                 {
                     NPC npcscripy = intercast.collider.GetComponent<NPC>();
                     textbox texscrp = texbox.GetComponent<textbox>();
-                    texscrp.DoText(npcscripy.InterAct(), npcscripy.geticons(), npcscripy) ;
+                    texscrp.DoText(npcscripy.InterAct(), npcscripy.geticons(), npcscripy);
                 }
             }
         }
+        Debug.DrawRay(transform.position, Direction * 2, Color.yellow);
 
     }
 
