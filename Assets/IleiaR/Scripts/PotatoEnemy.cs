@@ -29,6 +29,7 @@ public class PotatoEnemy : MonoBehaviour
 
         isAttacking = false;
 
+        anim_potato.Play("GPWalk");
 
     }
 
@@ -38,11 +39,14 @@ public class PotatoEnemy : MonoBehaviour
         if (isAttacking == true)
         {
             anim_potato.SetBool("isAttacking", true);
+            anim_potato.Play("GPBite");
 
         }
         if (isAttacking == false)
         {
             anim_potato.SetBool("isAttacking", false);
+            anim_potato.Play("GPWalk");
+
         }
 
 
@@ -69,7 +73,7 @@ public class PotatoEnemy : MonoBehaviour
             //anim_potato.SetBool("isAttacking", true);
             //anim_potato.Play("attackD");
             Debug.Log("Fart");
-            //isAttacking = true;
+            isAttacking = true;
         }
         else
         {
