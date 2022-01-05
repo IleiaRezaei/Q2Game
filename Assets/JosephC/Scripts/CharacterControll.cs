@@ -28,6 +28,7 @@ public class CharacterControll : MonoBehaviour
     private float dashtimer;
     private bool CanDash = false;
     private SpriteRenderer sprt;
+    private ParticleSystem part;
 
     public LayerMask lm;
     // Start is called before the first frame update
@@ -39,6 +40,7 @@ public class CharacterControll : MonoBehaviour
         hitbox = transform.GetChild(0).GetComponent<CapsuleCollider2D>();
         anim_player = GetComponent<Animator>();
         sprt = GetComponent<SpriteRenderer>();
+        part = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -59,15 +61,21 @@ public class CharacterControll : MonoBehaviour
         if (new Vector2(movex, movey) != new Vector2(0, 0))
         {
             intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), 2, lm);
-
+            if (part.isEmitting != true)
+            {
+                part.Play(true);
+            }
+            
             if (attacking == false && Dashing == false)
             {
+                
                 Direction = new Vector2(movex, movey);
                 anim_player.Play("Walk");
             }
         }
         else
         {
+            part.Stop(true);
             if (attacking == false && Dashing == false)
             {
                 anim_player.Play("Idle");
