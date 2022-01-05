@@ -61,16 +61,20 @@ public class CharacterControll : MonoBehaviour
         if (new Vector2(movex, movey) != new Vector2(0, 0))
         {
             intercast = Physics2D.Raycast(transform.position, new Vector2(movex, movey), 2, lm);
-            if (part.isEmitting != true)
-            {
-                part.Play(true);
-            }
-            
+
             if (attacking == false && Dashing == false)
             {
-                
+                if (part.isEmitting != true)
+                {
+                    part.Play(true);
+                }
+
                 Direction = new Vector2(movex, movey);
                 anim_player.Play("Walk");
+            }
+            else
+            {
+                part.Stop(true);
             }
         }
         else
