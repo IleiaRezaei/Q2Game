@@ -891,6 +891,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4065731084418293858}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &638028881 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4586811347818465464, guid: 525d53b34c7b08649a2f21d4147e3508,
+    type: 3}
+  m_PrefabInstance: {fileID: 4065731084418293858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!60 &638028889
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -916,12 +922,61 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.43301272, y: 0.24999999}
-      - {x: -0.4330127, y: -0.25000003}
-      - {x: 0.00000004371139, y: -0.5}
-      - {x: 0.43301272, y: -0.24999996}
-      - {x: 0.43301272, y: 0.24999996}
+    - - {x: 0.12450218, y: 0.81936914}
+      - {x: -0.57773495, y: 0.7514846}
+      - {x: -0.84082484, y: 0.41312498}
+      - {x: -0.8680134, y: -0.1181013}
+      - {x: -0.6165292, y: -0.72578156}
+      - {x: 0.1291409, y: -0.9146097}
+      - {x: 0.75926185, y: -0.54906255}
+      - {x: 0.69809127, y: 0.47429702}
+--- !u!1 &764124890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764124891}
+  - component: {fileID: 764124892}
+  m_Layer: 0
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &764124891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764124890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 638028881}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &764124892
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764124890}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.714931, y: -0.03177452}
+  m_Size: {x: 1.929862, y: 3.1373034}
+  m_Direction: 0
 --- !u!1 &783130178
 GameObject:
   m_ObjectHideFlags: 0
