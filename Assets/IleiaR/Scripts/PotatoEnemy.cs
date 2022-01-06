@@ -5,8 +5,9 @@ using UnityEngine;
 public class PotatoEnemy : MonoBehaviour
 {
 
-    public Sprite sprite1;
-    public Sprite sprite2;
+    //public Sprite sprite1;
+    //public Sprite sprite2;
+
 
     private SpriteRenderer spriteRenderer;
 
@@ -20,16 +21,14 @@ public class PotatoEnemy : MonoBehaviour
     void Start()
     {
         
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
         
-        spriteRenderer.sprite = sprite2;
+        //spriteRenderer.sprite = sprite2;
         
 
         anim_potato = GetComponent<Animator>();
 
         isAttacking = false;
-
-        anim_potato.Play("GPWalk");
 
     }
 
@@ -39,47 +38,54 @@ public class PotatoEnemy : MonoBehaviour
         if (isAttacking == true)
         {
             anim_potato.SetBool("isAttacking", true);
-            anim_potato.Play("GPBite");
+            //anim_potato.Play("GPBite");
 
         }
         if (isAttacking == false)
         {
             anim_potato.SetBool("isAttacking", false);
-            anim_potato.Play("GPWalk");
+            //anim_potato.Play("GPWalk");
 
         }
 
-
+        
     }
 
-    void ChangeColor()
-    {
-        if(spriteRenderer.sprite == sprite1)
-        {
-            spriteRenderer.sprite = sprite2;
-        }
-        else
-        {
-            spriteRenderer.sprite = sprite1;
-        }
-    }
+    //void ChangeColor()
+    //{
+    //   if(spriteRenderer.sprite == sprite1)
+    //    {
+    //        spriteRenderer.sprite = sprite2;
+    //    }
+    //    else
+    //    {
+    //       spriteRenderer.sprite = sprite1;
+    //    }
+    //}
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            ChangeColor();
-            Invoke("ChangeColor", 1);
+            //ChangeColor();
+            //Invoke("ChangeColor", 1);
             //anim_potato.SetBool("isAttacking", true);
             //anim_potato.Play("attackD");
-            Debug.Log("Fart");
+            Debug.Log("isAttacking");
             isAttacking = true;
+
+            anim_potato.SetBool("isAttacking", true);
+            anim_potato.SetBool("animationHasStopped", false);
+
+
         }
-        else
+        if(collision.gameObject.tag != "Player")
         {
-            //Debug.Log("baljeet");
-            //isAttacking = false;
-            //anim_potato.SetBool("isAttacking", false);
+
+            //Debug.Log("notAttacking");
+            anim_potato.SetBool("isAttacking", false);
+
+            anim_potato.SetBool("animationHasStopped", true);
 
             //ChangeColor();        
         }
