@@ -65,30 +65,34 @@ public class PotatoEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log(":::::::::::::::::::::" + collision.gameObject.tag);
         if(collision.gameObject.tag == "Player")
         {
-            //ChangeColor();
-            //Invoke("ChangeColor", 1);
-            //anim_potato.SetBool("isAttacking", true);
-            //anim_potato.Play("attackD");
             Debug.Log("isAttacking");
             isAttacking = true;
 
             anim_potato.SetBool("isAttacking", true);
-            anim_potato.SetBool("animationHasStopped", false);
-
 
         }
-        if(collision.gameObject.tag != "Player")
+        else        
         {
-
             //Debug.Log("notAttacking");
-            anim_potato.SetBool("isAttacking", false);
+            //anim_potato.SetBool("isAttacking", false);
 
-            anim_potato.SetBool("animationHasStopped", true);
-
-            //ChangeColor();        
         }
     }
-   
+
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("notAttacking");
+        anim_potato.SetBool("isAttacking", false);
+
+        anim_potato.SetBool("animationHasStopped", true);
+
+        Debug.Log("==========================================");
+
+    }
+
+
 }
